@@ -13,4 +13,10 @@ export class FoodService {
   getAll():Food[]{
     return sample_foods;
   }
+
+  //add search bar to the page
+  getAllFoodsBySearchTerm(searchTerm:string){
+    //we resolve everything to lower case to make it case insensitive
+    return this.getAll().filter(food => food.name.toLowerCase().includes(searchTerm.toLowerCase()))
+  }
 }
